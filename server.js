@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 // const connectDB = require('./config/db');
+const userRouter = require("./routers/user");
 
 require("dotenv").config();
 
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.get("/", (req, res) => res.send("API is Running..."));
+app.use("/user", userRouter);
 
 // Define Routes
 
